@@ -1,0 +1,14 @@
+<app-topnavbar></app-topnavbar>
+<ul *ngIf="authService.user">
+    <li><a (click)="logout()">Logout</a></li>
+</ul>
+
+<app-navigation *ngIf="authService.user"></app-navigation>
+
+<app-login *ngIf="!authService.user"></app-login>
+
+<!-- user name after login -->
+<span *ngIf="authService.user">User: {{ authService.user.email }}</span>
+
+<router-outlet></router-outlet>
+<!-- <app-footer></app-footer> -->
